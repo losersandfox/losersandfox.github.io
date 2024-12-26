@@ -4,15 +4,43 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>数字信号处理复习（南邮特供） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://losersandfox.github.io/index.html">
+  <meta name="description" content="$Summery$ : 数字信号处理第一章   离散时间信号的系统一、正弦信号采样和周期对正弦模拟信号 $x(n)&#x3D;Asin(\Omega_0t)$ 进行采样，采样间隔为$T$，采样频率就是$f_s$,则采样周期$w_0$$$w_0&#x3D;\Omega_0 T&#x3D;2\pi f_0T&#x3D;\frac{2\pi f_0}{f_s}$$  二、重要的离散时间系统的时域频域变换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字信号处理复习（南邮特供）">
+<meta property="og:url" content="https://losersandfox.github.io/2024/12/27/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%A4%8D%E4%B9%A0%EF%BC%88%E5%8D%97%E9%82%AE%E7%89%B9%E4%BE%9B%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="$Summery$ : 数字信号处理第一章   离散时间信号的系统一、正弦信号采样和周期对正弦模拟信号 $x(n)&#x3D;Asin(\Omega_0t)$ 进行采样，采样间隔为$T$，采样频率就是$f_s$,则采样周期$w_0$$$w_0&#x3D;\Omega_0 T&#x3D;2\pi f_0T&#x3D;\frac{2\pi f_0}{f_s}$$  二、重要的离散时间系统的时域频域变换">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/QQ20241210-222956.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/image-20241210012110484.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/QQ20241222-163048.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/%E7%9F%A9%E5%BD%A2%E7%AA%97.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/%E6%A0%85%E6%A0%8F%E6%95%88%E5%BA%94.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/QQ20241222-233610.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/QQ20241222-235627.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/QQ20241217-223019.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/IIR%E6%BB%A4%E6%B3%A2%E5%99%A8%E5%8F%82%E6%95%B0.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/H%28w%29.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/%E7%9B%B4%E6%8E%A5%E2%85%A0%E5%9E%8B.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/%E7%9B%B4%E6%8E%A5%E2%85%A1%E5%9E%8B.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/QQ20241226-113146.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/%E7%BA%A7%E8%81%94%E5%9E%8B.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/%E5%B9%B6%E8%81%94%E5%9E%8B.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/%E6%A8%AA%E6%88%AA%E5%9E%8B.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/%E6%A8%AA%E6%88%AA%E5%9E%8B%E8%BD%AC%E7%BD%AE.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/FIR%E7%BA%A7%E8%81%94%E5%9E%8B1.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/%E7%BA%BF%E6%80%A7%E7%9B%B8%E4%BD%8D1.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/%E7%BA%BF%E6%80%A7%E7%9B%B8%E4%BD%8D2.png">
+<meta property="og:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/%E7%BA%BF%E6%80%A7%E7%9B%B8%E4%BD%8D3.png">
+<meta property="article:published_time" content="2024-12-26T16:23:44.000Z">
+<meta property="article:modified_time" content="2024-12-26T16:32:42.130Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="期末">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-picture-1333016672.cos.ap-nanjing.myqcloud.com/QQ20241210-222956.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -67,9 +95,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-数字信号处理复习（南邮特供）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-数字信号处理复习（南邮特供）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/12/27/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%A4%8D%E4%B9%A0%EF%BC%88%E5%8D%97%E9%82%AE%E7%89%B9%E4%BE%9B%EF%BC%89/" class="article-date">
   <time class="dt-published" datetime="2024-12-26T16:23:44.000Z" itemprop="datePublished">2024-12-27</time>
@@ -82,8 +108,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/12/27/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E5%A4%8D%E4%B9%A0%EF%BC%88%E5%8D%97%E9%82%AE%E7%89%B9%E4%BE%9B%EF%BC%89/">数字信号处理复习（南邮特供）</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      数字信号处理复习（南邮特供）
     </h1>
   
 
@@ -578,62 +604,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/12/26/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2024-12-26T15:26:39.834Z" itemprop="datePublished">2024-12-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/12/26/hello-world/">Hello World</a>
-    </h1>
+    <a href="/2024/12/26/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://losersandfox.github.io/2024/12/26/hello-world/" data-id="cm55htpst0000swwm6aci3836" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>
